@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
+    <!-- <link href="css/main.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>
+      AUTOCOMPLETE WEB APP
+    </title>
+   
+    <style> 
+input[type=text] {
+  box-sizing: border-box;
+  border: 5px solid rgb(39, 36, 36);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+   width: 500px;
+}
+
+input[type=text]:focus {
+  width: 100%;
+}
+
+</style>
+
+  </head>
+  <body>
+    
+    <div class="s005">
+      <form method="POST" action="/predict">
+        <fieldset>
+          </b></center>
+          <br><br>
+          <div class="inner-form">
+            <div class="input-field">
+             <input type="text" name="text" placeholder="Search.." value="{{ s }}">
+              <button class="btn-search" type="button">
+                
+              </button>
+            </div>
+          </div>
+          <div class="suggestion-wrap">
+            <span style="color: rgb(11, 17, 184); font-weight: bold; font-size: 20px;">Suggested Words</span>
+
+            <span> ⏩ </span>
+             {% for i in t %}
+               <span style="color: rgb(21, 21, 21); font-weight: bold; font-size: 15px;">{{ i }}</span>
+             {% endfor %}
+
+          </div>
+        </fieldset>
+      </form>
+
+    </div>
+
+    <script>
+      var textPresetVal = new Choices('#choices-text-preset-values',
+      {
+        removeItemButton: true,
+      });
+
+    </script>
+ 
+  </body>
+</html>
